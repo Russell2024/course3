@@ -6,16 +6,16 @@ def normal_output(file_name):
     with open(file_name, encoding='utf-8') as f:
         operations = json.load(f)
 
+    operations_sort = sort_data(operations)
+
     executed_five = []
     i = 0
 
-    for operation in operations[::-1]:
+    for operation in operations_sort:
         if i < 5:
             if operation['state'] == 'EXECUTED':
                 executed_five.append(operation)
                 i += 1
-
-    executed_five = sort_data(executed_five)
 
     for i in range(len(executed_five)):
         if 'from' in executed_five[i]:
