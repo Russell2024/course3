@@ -13,7 +13,7 @@ def data_normal(string):
 
 def saving_card_from(string):
     string_split = string.split(' ')
-    card = [i for i in string_split[1]]
+    card = [i for i in string_split[-1]]
     count = 0
     for _ in card:
         if len(card) == 16:
@@ -32,7 +32,7 @@ def saving_card_from(string):
         else:
             save_card += i
         k += 1
-    return f'{string_split[0]} {save_card}'
+    return f'{' '.join(string_split[:len(string_split) - 1])} {save_card}'
 
 
 def saving_card_to(string):
